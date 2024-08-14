@@ -278,7 +278,7 @@ def train_model(model: nn.Module, data: List, config: ConfigMetaCAT, save_dir_pa
     ignore_cpos = config.model['ignore_cpos']
     num_batches = math.ceil(len(train_data) / batch_size)
     num_batches_test = math.ceil(len(test_data) / batch_size_eval)
-    optimizer = optim.Adam(parameters, lr=config.train['lr'], weight_decay=1e-5)
+    optimizer = optim.Adam(parameters, lr=config.train['lr'])
     if config.model.model_architecture_config is not None:
         if config.model.model_architecture_config['lr_scheduler'] is True:
             model, optimizer, scheduler = initialize_model(model, train_data, batch_size, config.train['lr'],
