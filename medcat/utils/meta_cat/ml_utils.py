@@ -292,7 +292,7 @@ def train_model(model: nn.Module, data: List, config: ConfigMetaCAT, save_dir_pa
         all_logits = []
         model.train()
         for i in range(num_batches):
-            model.zero_grad()
+            # model.zero_grad()
 
             x, cpos, attention_masks, y = create_batch_piped_data(train_data, i * batch_size, (i + 1) * batch_size,
                                                                   device=device, pad_id=pad_id)
